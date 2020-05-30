@@ -1,8 +1,13 @@
 import React from 'react';
 import Square from './Square';
 
-const Board = (props) => {
-	const renderSquare = (i) =>
+type Props = {
+	squares: Array<string>,
+	finished: boolean,
+	onClick: (i: number) => void
+};
+const Board: React.FC<Props> = (props) => {
+	const renderSquare = (i: number) =>
 		<Square
 			value={props.squares[i]}
 			onClick={() => props.onClick(i)}

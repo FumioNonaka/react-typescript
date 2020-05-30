@@ -7,7 +7,7 @@ function App() {
 	const [stepNumber, setStepNumber] = useState(0);
 	const [xIsNext, setXIsNext] = useState(true);
 	const [finished, setFinished] = useState(false);
-	const handleClick = i => {
+	const handleClick = (i: number) => {
 		if (finished) {
 			return;
 		}
@@ -31,7 +31,7 @@ function App() {
 		setStepNumber(_history.length);
 		setXIsNext(!xIsNext);
 	};
-	const jumpTo = step => {
+	const jumpTo = (step: number) => {
 		setStepNumber(step);
 		setXIsNext(step % 2 === 0);
 		setFinished(false);
@@ -63,9 +63,8 @@ function App() {
 			</div>
 		</div>
 	);
-	// }
 }
-function calculateWinner(squares) {
+function calculateWinner(squares: Array<string>) {
 	const lines = [
 		[0, 1, 2],
 		[3, 4, 5],
